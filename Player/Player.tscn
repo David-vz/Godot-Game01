@@ -4,8 +4,8 @@
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 59.4112
-height = 83.599
+radius = 54.8474
+height = 79.3849
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 541.549, 264.931 )
@@ -16,7 +16,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0.263535, -0.469666 )
+position = Vector2( 0.263535, 2.53033 )
 shape = SubResource( 1 )
 
 [node name="PlayerAnimation" parent="." instance=ExtResource( 1 )]
