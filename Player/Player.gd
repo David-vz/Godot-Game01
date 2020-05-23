@@ -5,6 +5,7 @@ onready var debug_reset_position = get_node("../DebugResetPoint")
 
 var motion = Vector2(0,0)
 var lastPressed
+var is_jumping
 
 # Godot doesn't know what 'up' is. This determines if something is a floor etc..
 const UP = Vector2(0,-1)
@@ -19,10 +20,12 @@ const JUMP_SPEED = 1000
 func _physics_process(delta):
 	# world effects and interactions
 	apply_gravity()
+	animate()
 	
 	# player actions
 	jump()
 	move()
+	
 
 	#debug actions
 	reset_player()
@@ -44,7 +47,10 @@ func reset_player():
 		set_position(debug_reset_position.get_position())
 	
 func jump():
+	if is_on_floor():
+		is_jumping = false
 	if Input.is_action_pressed("jump") and is_on_floor():
+		is_jumping=true
 		motion.y -= JUMP_SPEED	
 
 func move():
@@ -63,3 +69,18 @@ func move():
 		motion.x=SPEED
 	else:
 		motion.x=0
+		
+func animate():
+	if is_jumping:
+		if motion.y>0:
+			$AnimatedSprite.play("jump_down")
+		else:
+			$AnimatedSprite.play("jump_up")	
+	elif motion.x != 0:
+		if motion.x<0:
+			$AnimatedSprite.flip_h=true
+		else:
+			$AnimatedSprite.flip_h=false
+		$AnimatedSprite.play("walk")
+	else:
+		$AnimatedSprite.play("idle")
