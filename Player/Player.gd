@@ -10,9 +10,9 @@ var is_jumping
 # Godot doesn't know what 'up' is. This determines if something is a floor etc..
 const UP = Vector2(0,-1)
 
-const SPEED = 1000
-const GRAVITY = 50
-const JUMP_SPEED = 1000
+const SPEED = 1300
+const GRAVITY = 100
+const JUMP_SPEED = 1700
 
 signal animate
 

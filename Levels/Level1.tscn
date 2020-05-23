@@ -2,78 +2,21 @@
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 32 )
+[ext_resource path="res://Levels/Tileset.tres" type="TileSet" id=3]
 
 [node name="Level1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 532.957, 123.166 )
+position = Vector2( 530.685, 509.419 )
 
 [node name="DebugResetPoint" type="Sprite" parent="."]
-position = Vector2( 535.374, -282.312 )
+position = Vector2( 530.83, 519.73 )
 texture = ExtResource( 2 )
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 516.528, 271.497 )
-current = true
-zoom = Vector2( 2, 2 )
 
 [node name="Floors" type="Node" parent="."]
 
-[node name="Floor" type="StaticBody2D" parent="Floors"]
-position = Vector2( 231.068, 627.456 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor"]
-scale = Vector2( 10, 10 )
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="Floors/Floor"]
-scale = Vector2( 10, 10 )
-texture = ExtResource( 2 )
-
-[node name="Floor2" type="StaticBody2D" parent="Floors"]
-position = Vector2( -409.051, 524.685 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor2"]
-scale = Vector2( 10, 10 )
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="Floors/Floor2"]
-scale = Vector2( 10, 10 )
-texture = ExtResource( 2 )
-
-[node name="Floor3" type="StaticBody2D" parent="Floors"]
-position = Vector2( 871.187, 794.827 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor3"]
-scale = Vector2( 10, 10 )
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="Floors/Floor3"]
-scale = Vector2( 10, 10 )
-texture = ExtResource( 2 )
-
-[node name="Floor4" type="StaticBody2D" parent="Floors"]
-position = Vector2( 1511.31, 888.789 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floors/Floor4"]
-scale = Vector2( 10, 10 )
-shape = SubResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="Floors/Floor4"]
-scale = Vector2( 10, 10 )
-texture = ExtResource( 2 )
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
+collision_layer = 2
+format = 1
+tile_data = PoolIntArray( -262131, 3, 0, -65543, 0, 0, -65532, 1, 0, 20, 3, 0, 262158, 3, 0, 393237, 3, 0, 720887, 2, 0, 655379, 2, 0, 786430, 2, 0, 720908, 2, 0, 786437, 2, 0 )
