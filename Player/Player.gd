@@ -14,6 +14,7 @@ const SPEED = 1000
 const GRAVITY = 50
 const JUMP_SPEED = 1000
 
+signal animate
 
 
 
@@ -71,16 +72,6 @@ func move():
 		motion.x=0
 		
 func animate():
-	if is_jumping:
-		if motion.y>0:
-			$AnimatedSprite.play("jump_down")
-		else:
-			$AnimatedSprite.play("jump_up")	
-	elif motion.x != 0:
-		if motion.x<0:
-			$AnimatedSprite.flip_h=true
-		else:
-			$AnimatedSprite.flip_h=false
-		$AnimatedSprite.play("walk")
-	else:
-		$AnimatedSprite.play("idle")
+	# Sends signal to PlayerAnimation to animate based on motion and is_jumping
+	emit_signal("animate", motion, is_jumping)
+

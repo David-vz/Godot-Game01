@@ -19,6 +19,10 @@ config/name="Godot- Game 01"
 run/main_scene="res://Levels/Level1.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/resizable=false
+
 [input]
 
 left={
